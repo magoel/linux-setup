@@ -136,5 +136,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+
+
 #export NODE_PATH="${NODE_PATH}:$(npm -g root --slient)"
 #export NODE_PATH="${NVM_DIR}/versions/node/$(nvm current)/lib/node_modules"

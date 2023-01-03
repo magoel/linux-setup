@@ -9,10 +9,17 @@ cd "`dirname "${SCRIPTPATH}"`" > /dev/null
 SCRIPTPATH="`pwd`";
 popd  > /dev/null
 
-ln -s $SCRIPTPATH/dotfiles/.bashrc ~/.
-ln -s $SCRIPTPATH/dotfiles/.screenrc ~/.
+# fix bashrc
+rm -f ~/.bashrc
+ln -s ${SCRIPTPATH}/dotfiles/.bashrc ~/.
 touch ~/.manishbashrc
 echo "Add custom setting to ~/.manishbashrc"
+
+#fix screenrc
+rm -f ~/.screenrc
+ln -s ${SCRIPTPATH}/dotfiles/.screenrc ~/.
+mkdir -p ~/.screendir
+chmod 700 ~/.screendir
 
 
 sudo apt-get update -y

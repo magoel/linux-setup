@@ -10,16 +10,17 @@ SCRIPTPATH="`pwd`";
 popd  > /dev/null
 
 
-sudo apt-get update -y
-
-gh auth login    # login git hub, follow prompts
-
-
 # fix mappings
-rm -f ~/.vim
+rm -f ~/.screenrc
+ln -s ${SCRIPTPATH}/dotfiles/.screenrc ~/.
+mkdir -p ~/.screendir
+chmod 700 ~/.screendir
+
+
+rm -f ~/.bashrc
+ln -s ${SCRIPTPATH}/dotfiles/.bashrc ~/.
+rm -f ~/.vim ~/.vimrc
 ln -s ${SCRIPTPATH}/repos/vimsetup/vimfiles ~/.vim
 
 
 
-#update
-${SCRIPTPATH}/update.bash
