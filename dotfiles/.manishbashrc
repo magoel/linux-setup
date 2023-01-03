@@ -1,0 +1,33 @@
+alias som="source ~/.manishbashrc"
+export _MANISH_HOME=~
+export C=/mnt/c
+export D=/mnt/d
+export E=/mnt/e
+export B=$D/mgdoff4
+export O=$B/dev/otools
+export W=$B/dev/word
+alias sd=$B/dev/otools/bin/sd.exe
+
+#export OSETUP=/mnt/osetup
+#mkdir -p $OSETUP
+#mount -t drvfs //offdepot1/osetup  $OSETUP
+#
+#mkdir -p /mnt/daddev-office
+#mount -t drvfs //daddev/Office  /mnt/daddev-office
+export GTAGSFORCECPP=1
+#export GTAGSROOT=$B
+#export GTAGSDBPATH=$B
+
+gentag () {
+	local sandbox=$1;
+	pushd $sandbox;
+	find $sandbox -iname "*.cpp" -o -iname "*.h" -o -iname "*.inl" > src.list;
+	gtags -f src.list;
+	popd;
+}
+
+fixmeta () {
+	local sandbox=$1;
+	pushd $sandbox;
+	chmod a-w dev/otools/ovr/*.meta;
+}
