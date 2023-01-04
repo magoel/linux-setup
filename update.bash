@@ -21,7 +21,5 @@ pushd ${SCRIPTPATH}/repos/vimsetup
 git pull
 popd
 #update vim plugins 
-vim -E -s << EOF
-:PluginUpdate
-:quit
-EOF
+gh repo clone VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
+vim -c ":PluginUpdate" -c ":qa!"

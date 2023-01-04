@@ -41,10 +41,7 @@ mkdir -p ~/.vim/bundle
 
 #install vim plugins 
 gh repo clone VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
-vim -E -s << EOF
-:PluginInstall
-:quit
-EOF
+vim -c ":PluginInstall" -c ":qa!"
 
 
 
