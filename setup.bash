@@ -23,6 +23,9 @@ chmod 700 ~/.screendir
 
 
 sudo apt-get update -y
+sudo add-apt-repository ppa:git-core/ppa -y   # apt-repo for git-latest
+sudo apt-get update -y
+
 
 # git installation
 sudo apt install git -y
