@@ -64,3 +64,9 @@ sudo apt install cmake -y
 # install node
 curl -sL https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
 nvm install --lts
+
+
+#install clang format
+sudo apt install clang-format -y
+mkdir -p ~/localInstall
+ln -s ${SCRIPTPATH}/clang-format.py ~/localInstall/

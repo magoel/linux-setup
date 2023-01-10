@@ -138,5 +138,6 @@ export NVM_DIR="$HOME/.nvm"
 
 
 
+
 #export NODE_PATH="${NODE_PATH}:$(npm -g root --slient)"
 #export NODE_PATH="${NVM_DIR}/versions/node/$(nvm current)/lib/node_modules"
