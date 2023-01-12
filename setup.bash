@@ -69,11 +69,17 @@ curl -sL https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
 nvm install --lts
 
 
+# install latest llvm too chain
+bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
 #install clang format
-sudo apt install clang-format -y
+sudo apt install clang-format-15 -y
+sudo apt install clangd-15 -y
+rm -f /usr/local/bin/clang-format
+rm -f /usr/local/bin/clangd
+sudo ln -s /usr/bin/clang-format-15 /usr/local/bin/clang-format
+sudo ln -s /usr/bin/clangd-15 /usr/local/bin/clangd
 mkdir -p ~/localInstall
 ln -s ${SCRIPTPATH}/clang-format.py ~/localInstall/
-sudo apt install clangd -y
 sudo apt install jq -y    #sed like filter for json files, used to concat multuple compile_commands.json file
 
 
