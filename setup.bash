@@ -24,7 +24,7 @@ chmod 700 ~/.screendir
 
 sudo apt-get update -y
 sudo add-apt-repository ppa:git-core/ppa -y   # apt-repo for git-latest
-sudo add-apt-repository ppa:jonathonf/vim -y #bit risky
+sudo add-apt-repository ppa:jonathonf/vim -y  # ppa for latest vim
 sudo apt-get update -y
 
 
@@ -36,6 +36,7 @@ gh auth login    # login, follow prompts
 
 # vim setup
 mkdir -p ${SCRIPTPATH}/repos
+sudo apt install vim -y
 gh repo clone magoel/vimsetup ${SCRIPTPATH}/repos/vimsetup
 rm -f ~/.vim 
 rm -f ~/.vimrc
@@ -74,3 +75,8 @@ mkdir -p ~/localInstall
 ln -s ${SCRIPTPATH}/clang-format.py ~/localInstall/
 sudo apt install clangd -y
 sudo apt install jq -y    #sed like filter for json files, used to concat multuple compile_commands.json file
+
+
+#install graphviz
+sudo apt install graphviz -y
+
