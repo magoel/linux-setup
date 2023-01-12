@@ -24,6 +24,7 @@ chmod 700 ~/.screendir
 
 sudo apt-get update -y
 sudo add-apt-repository ppa:git-core/ppa -y   # apt-repo for git-latest
+sudo add-apt-repository ppa:jonathonf/vim -y #bit risky
 sudo apt-get update -y
 
 
@@ -54,6 +55,7 @@ sudo apt-get install global -y
 sudo apt install exuberant-ctags -y
 sudo apt install vim-gtk -y    # needed for clipboard support
 sudo apt install cmake -y
+sudo apt install ninja-build -y
 
 #sudo apt install vim-nox python3-dev -y
 #sudo apt install mono-complete golang default-jdk -y
@@ -70,3 +72,5 @@ nvm install --lts
 sudo apt install clang-format -y
 mkdir -p ~/localInstall
 ln -s ${SCRIPTPATH}/clang-format.py ~/localInstall/
+sudo apt install clangd -y
+sudo apt install jq -y    #sed like filter for json files, used to concat multuple compile_commands.json file
