@@ -9,6 +9,10 @@ cd "`dirname "${SCRIPTPATH}"`" > /dev/null
 SCRIPTPATH="`pwd`";
 popd  > /dev/null
 
+#create asset dir, for downloading ... 
+mkdir -p ${SCRIPTPATH}/assets
+ASSETDIR=${SCRIPTPATH}/assets
+
 # fix bashrc
 rm -f ~/.bashrc
 ln -s ${SCRIPTPATH}/dotfiles/.bashrc ~/.
@@ -28,6 +32,7 @@ sudo add-apt-repository ppa:jonathonf/vim -y  # ppa for latest vim
 sudo apt-get update -y
 
 
+sudo apt install unzip -y
 # git installation
 sudo apt install git -y
 # install github cli
@@ -35,13 +40,12 @@ sudo apt install gh -y
 gh auth login    # login, follow prompts
 
 # vim setup
-mkdir -p ${SCRIPTPATH}/repos
 sudo apt install vim -y
-gh repo clone magoel/vimsetup ${SCRIPTPATH}/repos/vimsetup
+gh repo clone magoel/vimsetup ${SCRIPTPATH}/assets/vimsetup
 rm -f ~/.vim 
 rm -f ~/.vimrc
 mkdir -p ~/vim-swap
-ln -s ${SCRIPTPATH}/repos/vimsetup/vimfiles ~/.vim
+ln -s ${SCRIPTPATH}/assets/vimsetup/vimfiles ~/.vim
 mkdir -p ~/.vim/bundle
 
 #install vim plugins 
@@ -85,6 +89,14 @@ sudo ln -s /usr/bin/clangd-15 /usr/local/bin/clangd
 mkdir -p ~/localInstall
 ln -s ${SCRIPTPATH}/clang-format.py ~/localInstall/
 sudo apt install jq -y    #sed like filter for json files, used to concat multuple compile_commands.json file
+#install clangd-indexer
+pushd ${ASSETDIR}
+wget https://github.com/clangd/clangd/releases/download/15.0.6/clangd_indexing_tools-linux-15.0.6.zip
+unzip clangd_indexing_tools-linux-15.0.6.zip
+sudo ln -s ${ASSETDIR}/clangd_15.0.6/bin/clangd-indexer /usr/local/bin
+popd
+
+
 
 
 #install graphviz
