@@ -57,6 +57,7 @@ sudo apt install exuberant-ctags -y
 sudo apt install vim-gtk -y    # needed for clipboard support
 sudo apt install cmake -y
 sudo apt install ninja-build -y
+sudo apt install -y gcc g++
 
 #sudo apt install vim-nox python3-dev -y
 #sudo apt install mono-complete golang default-jdk -y
@@ -67,6 +68,11 @@ sudo apt install ninja-build -y
 # install node
 curl -sL https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
 nvm install --lts
+npm use --lts
+npm install -g typescript-language-server   # install lang server for js/ts
+sudo rm -f /usr/local/bin/typescript-language-server
+sudo ln -s `which typescript-language-server` /usr/local/bin/.
+
 
 
 # install latest llvm too chain
@@ -85,4 +91,9 @@ sudo apt install jq -y    #sed like filter for json files, used to concat multup
 
 #install graphviz
 sudo apt install graphviz -y
+
+
+
+#tree util to list folder tree
+sudo apt install -y tree
 
