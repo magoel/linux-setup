@@ -66,6 +66,8 @@ sudo apt install ninja-build -y
 # install node
 curl -sL https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
 nvm install --lts
+#install typescript and its language server
+npm install -g typescript-language-server typescript
 
 
 #install clang format
