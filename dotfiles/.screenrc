@@ -78,7 +78,7 @@ bind 'b' focus bottom
 #      Set the colors for the "messages" and "text marking"
 #      Example: "+b kG" = blue screen, black text, green background. Change
 #      to "+b kR" and so on to distinguish machines.
-sorendition "+b wG"   
+sorendition "+b kG"   
 
 # 2.2) hardstatus = navigation bar @ bottom
 hardstatus alwayslastline "%H %-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"  
@@ -87,6 +87,7 @@ hardstatus alwayslastline "%H %-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"
 screen -t umbrella htop
 screen -t build 1 pwsh.exe -NoExit -File init.ps1
 screen -t edit 2
+screen -t repo 2 cd ~/winhome/repos
 
 # 2.4) Description of the keywords used in hardstatus
 # caption always "%?%F%{-b bc}%:%{-b bb}%?%C|%D|%M %d|%H%?%F%{+u wb}%? %L=%-Lw%45>%{+b by}%n%f* %t%{-}%+Lw%-0<"
