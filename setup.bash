@@ -97,8 +97,6 @@ sudo ln -s ${ASSETDIR}/clangd_15.0.6/bin/clangd-indexer /usr/local/bin
 popd
 
 
-
-
 #install graphviz
 sudo apt install graphviz -y
 
@@ -107,3 +105,15 @@ sudo apt install graphviz -y
 #tree util to list folder tree
 sudo apt install -y tree
 
+
+#install ripgrep 
+sudo apt-get install ripgrep -y
+
+#install fzf
+sudo apt install bat -y
+sudo apt install fzf -y
+sudo apt install libnotify-bin -y
+
+
+#install ast-grep
+npm install -g @ast-grep/cli
