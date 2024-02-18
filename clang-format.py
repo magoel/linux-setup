@@ -44,8 +44,8 @@ if vim.eval('exists("g:clang_format_path")') == "1":
 # 'clang-format --help' for a list of supported styles. The default looks for
 # a '.clang-format' or '_clang-format' file to indicate the style that should be
 # used.
-style = None
-fallback_style = None
+style = "file"
+fallback_style = "Microsoft";
 if vim.eval('exists("g:clang_format_fallback_style")') == "1":
   fallback_style = vim.eval('g:clang_format_fallback_style')
 
@@ -99,7 +99,7 @@ def main():
   if fallback_style:
     command.extend(['-fallback-style', fallback_style])
   if vim.current.buffer.name:
-    command.extend(['-assume-filename', vim.current.buffer.name])
+    command.extend(['-assume-filename', vim.eval('expand("%")')])
   p = subprocess.Popen(command,
                        stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                        stdin=subprocess.PIPE, startupinfo=startupinfo)
