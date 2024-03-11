@@ -144,7 +144,7 @@ export NVM_DIR="$HOME/.nvm"
 export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_DEFAULT_OPTS='-m --height 50% --border'
 source /usr/share/doc/fzf/examples/key-bindings.bash
-source /usr/share/doc/fzf/examples/completion.bash
+#source /usr/share/doc/fzf/examples/completion.bash
 
 
 #export NODE_PATH="${NODE_PATH}:$(npm -g root --slient)"
@@ -159,3 +159,8 @@ shopt -s histappend
 # After each command, append to the history file and reread it
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 ##################################
+
+
+
+#configure neo-vim aka nvim
+export PATH="$PATH:/opt/nvim-linux64/bin"

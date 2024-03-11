@@ -117,3 +117,21 @@ sudo apt install libnotify-bin -y
 
 #install ast-grep
 npm install -g @ast-grep/cli
+
+
+#install fd
+sudo apt install -y fd-find 
+
+#install neovim
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+sudo rm -rf /opt/nvim
+sudo tar -C /opt -xzf nvim-linux64.tar.gz
+rm -rf nvim-linux64.tar.gz
+# install neovim personal setup
+gh repo clone magoel/nvimsetup ${SCRIPTPATH}/assets/nvimsetup
+mkdir -p ~/.config
+rm -rf ~/.config/nvim 
+ln -s ${SCRIPTPATH}/assets/nvimsetup/nvimfiles ~/.config/nvim
+#install nvim plugins 
+gh repo clone VundleVim/Vundle.vim ~/.config/nvim/bundle/Vundle.vim
+/opt/nvim-linux64/bin/nvim -c ":PluginInstall" -c ":qa!"
