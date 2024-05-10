@@ -135,3 +135,10 @@ ln -s ${SCRIPTPATH}/assets/nvimsetup/nvimfiles ~/.config/nvim
 #install nvim plugins 
 gh repo clone VundleVim/Vundle.vim ~/.config/nvim/bundle/Vundle.vim
 /opt/nvim-linux64/bin/nvim -c ":PluginInstall" -c ":qa!"
+
+
+#install tmux
+sudo apt install tmux -y
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+rm -f ~/.tmux.conf
+ln -s ${SCRIPTPATH}/dotfiles/.tmux.conf ~/.
