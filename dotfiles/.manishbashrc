@@ -23,9 +23,9 @@ gentag () {
 	pushd $sandbox;
 	find $sandbox -iname "*.cpp" -o -iname "*.h" -o -iname "*.inl" > src.list;
 	gtags -I -f src.list;
-	find Build/x64/debug -iname "compile_commands.json" > compile_commands.json.list
-	jq -s '.[]' `cat compile_commands.json.list` | jq -s 'reduce .[] as $x ([]; . + $x)' > compile_commands.json
-	python ~/winhome/repos/linux-setup/wsl_compile_command_converter.py compile_commands.json
+	# find Build/x64/debug -iname "compile_commands.json" > compile_commands.json.list
+	# jq -s '.[]' `cat compile_commands.json.list` | jq -s 'reduce .[] as $x ([]; . + $x)' > compile_commands.json
+	# python ~/winhome/repos/linux-setup/wsl_compile_command_converter.py compile_commands.json
 	popd;
 }
 
