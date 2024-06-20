@@ -40,17 +40,17 @@ sudo apt install gh -y
 gh auth login    # login, follow prompts
 
 # vim setup
-sudo apt install vim -y
-gh repo clone magoel/vimsetup ${SCRIPTPATH}/assets/vimsetup
-rm -f ~/.vim 
-rm -f ~/.vimrc
-mkdir -p ~/vim-swap
-ln -s ${SCRIPTPATH}/assets/vimsetup/vimfiles ~/.vim
-mkdir -p ~/.vim/bundle
-
-#install vim plugins 
-gh repo clone VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
-vim -c ":PluginInstall" -c ":qa!"
+#sudo apt install vim -y
+#gh repo clone magoel/vimsetup ${SCRIPTPATH}/assets/vimsetup
+#rm -f ~/.vim 
+#rm -f ~/.vimrc
+#mkdir -p ~/vim-swap
+#ln -s ${SCRIPTPATH}/assets/vimsetup/vimfiles ~/.vim
+#mkdir -p ~/.vim/bundle
+#
+##install vim plugins 
+#gh repo clone VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
+#vim -c ":PluginInstall" -c ":qa!"
 
 
 
@@ -77,24 +77,24 @@ npm install -g typescript-language-server typescript
 
 
 
-# install latest llvm too chain
-bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
-#install clang format
-sudo apt install clang-format-15 -y
-sudo apt install clangd-15 -y
-rm -f /usr/local/bin/clang-format
-rm -f /usr/local/bin/clangd
-sudo ln -s /usr/bin/clang-format-15 /usr/local/bin/clang-format
-sudo ln -s /usr/bin/clangd-15 /usr/local/bin/clangd
-mkdir -p ~/localInstall
-ln -s ${SCRIPTPATH}/clang-format.py ~/localInstall/
-sudo apt install jq -y    #sed like filter for json files, used to concat multuple compile_commands.json file
-#install clangd-indexer
-pushd ${ASSETDIR}
-wget https://github.com/clangd/clangd/releases/download/15.0.6/clangd_indexing_tools-linux-15.0.6.zip
-unzip clangd_indexing_tools-linux-15.0.6.zip
-sudo ln -s ${ASSETDIR}/clangd_15.0.6/bin/clangd-indexer /usr/local/bin
-popd
+## install latest llvm too chain
+#bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+##install clang format
+#sudo apt install clang-format-15 -y
+#sudo apt install clangd-15 -y
+#rm -f /usr/local/bin/clang-format
+#rm -f /usr/local/bin/clangd
+#sudo ln -s /usr/bin/clang-format-15 /usr/local/bin/clang-format
+#sudo ln -s /usr/bin/clangd-15 /usr/local/bin/clangd
+#mkdir -p ~/localInstall
+#ln -s ${SCRIPTPATH}/clang-format.py ~/localInstall/
+#sudo apt install jq -y    #sed like filter for json files, used to concat multuple compile_commands.json file
+##install clangd-indexer
+#pushd ${ASSETDIR}
+#wget https://github.com/clangd/clangd/releases/download/15.0.6/clangd_indexing_tools-linux-15.0.6.zip
+#unzip clangd_indexing_tools-linux-15.0.6.zip
+#sudo ln -s ${ASSETDIR}/clangd_15.0.6/bin/clangd-indexer /usr/local/bin
+#popd
 
 
 #install graphviz
@@ -111,7 +111,10 @@ sudo apt-get install ripgrep -y
 
 #install fzf
 sudo apt install bat -y
-sudo apt install fzf -y
+pushd ${ASSETDIR}
+gh repo clone junegunn/fzf
+fzf/install --all --no-update-rc
+popd
 sudo apt install libnotify-bin -y
 
 

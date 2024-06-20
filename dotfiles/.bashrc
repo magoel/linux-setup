@@ -140,11 +140,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# fzf settings
-export FZF_DEFAULT_COMMAND='rg --files'
-export FZF_DEFAULT_OPTS='-m --height 50% --border'
-source /usr/share/doc/fzf/examples/key-bindings.bash
-#source /usr/share/doc/fzf/examples/completion.bash
 
 
 #export NODE_PATH="${NODE_PATH}:$(npm -g root --slient)"
@@ -163,4 +158,11 @@ PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; h
 
 
 #configure neo-vim aka nvim
-export PATH="$PATH:/opt/nvim-linux64/bin"
+if [[ ! "$PATH" == */opt/nvim-linux64/bin* ]]; then
+  PATH="${PATH:+${PATH}:}/opt/nvim-linux64/bin"
+fi
+
+# fzf settings
+export FZF_DEFAULT_COMMAND='rg --files'
+export FZF_DEFAULT_OPTS='-m --height 50% --border'
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
